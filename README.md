@@ -27,7 +27,7 @@ cd vcpkg
 ./vcpkg.exe install boost-asio:x64-windows
 ```
 
-4. Для использования библиотеки boost/asio в проекте необходимо добавить в файл CMakeLists.txt следующие строки:
+4. Для использования библиотеки boost/asio в проекте необходимо добавить в файл CMakeLists.txt(client) следующие строки:
 
 ```
 cmake_minimum_required(VERSION 3.24)
@@ -45,6 +45,27 @@ add_executable(AsyncClient main.cpp client.cpp)
 if(MINGW)
 target_include_directories(AsyncClient PRIVATE ${boost_INCLUDE_DIRS})
 target_link_libraries(AsyncClient PRIVATE ws2_32 ${boost_LIBRARIES})
+endif()
+```
+
+5. Для использования библиотеки boost/asio в проекте необходимо добавить в файл CMakeLists.txt(server) следующие строки:
+
+```
+cmake_minimum_required(VERSION 3.24)
+
+set(DEV_DIR D:/dev/)
+set(CMAKE_TOOLCHAIN_FILE ${DEV_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake)
+
+project(AsyncServer)
+
+include_directories(${DEV_DIR}/vcpkg/installed/x64-windows/include)
+link_directories(${DEV_DIR}/vcpkg/installed/x64-windows/lib)
+
+add_executable(AsyncServer main.cpp server.cpp)
+
+if(MINGW)
+target_include_directories(AsyncServer PRIVATE ${boost_INCLUDE_DIRS})
+target_link_libraries(AsyncServer PRIVATE ws2_32 ${boost_LIBRARIES})
 endif()
 ```
 

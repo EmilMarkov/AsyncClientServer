@@ -9,7 +9,7 @@ include_directories(${DEV_DIR}/vcpkg/installed/x64-windows/include)
 link_directories(${DEV_DIR}/vcpkg/installed/x64-windows/lib)
 #find_package(boost CONFIG REQUIRED)
 
-add_executable(AsyncServer main.cpp server.cpp session.cpp)
+add_executable(AsyncServer main.cpp server.cpp)
 
 if(MINGW)
     target_include_directories(AsyncServer PRIVATE ${boost_INCLUDE_DIRS})

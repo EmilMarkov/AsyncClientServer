@@ -1,5 +1,5 @@
 # AsyncClientServer
-Asynchronous client-server application written in c++ using the boost/asio library.
+Асинхронное клиент-серверное приложение, написанное на c++ с использованием библиотеки `boost/asio`
 
 # Readme.md для асинхронного клиент-серверного приложения
 

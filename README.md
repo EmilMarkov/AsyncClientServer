@@ -78,7 +78,7 @@ endif()
 ```
 mkdir build
 cd build
-cmake ..
+cmake <Главный файл CMakeLists.txt>
 cmake --build .
 ```
 
